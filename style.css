@@ -11,7 +11,7 @@ body {
 }
 
 button {
-  margin: 1em;
+  float: right;
 }
 
 .navbar {
@@ -86,15 +86,6 @@ li:hover {
   background-color: #9e9268;
 }
 
-#answer-image {
-  float: left;
-  padding-right: 1em;
-  padding-top: 0.25em;
-}
-
-#startQuiz{
-  /* TODO style buttom */
-}
 
 .footer {
   /* set text properties */
