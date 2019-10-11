@@ -14,6 +14,21 @@ button {
   float: right;
 }
 
+/* style container with time in it */
+.timeBox {
+  background-color: pink;  
+  color: black;
+  height: 100%;
+  float: left
+}
+
+/* style container with daily plan */
+.dailyPlan {
+  float: left;
+  background-color: #fff;  
+  color: black;  
+}
+
 .navbar {
   background-color: #73919b;  
   color: #b6d7e2;  
@@ -74,7 +89,7 @@ li {
   height: 50px;
   margin-top: 5px;
   margin-bottom: 5px;
-  padding: 5px;
+  /* padding: 5px; */
   background-color: #897d9a;
   color: #fff;
   font-size: 1.5em;
