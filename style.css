@@ -11,75 +11,46 @@ body {
   vertical-align: middle;
 }
 
-.saveIcon {
-  text-align: center;
-  vertical-align: middle;
-  float: right;
-  width: 10%;
-  height: 100%;
-  color: linen;
-  font-size: 1.5em;
-  background-color: darkturquoise;
-  border-radius: 15px;
-  padding-top: 1%;
-}
 
 /*  need to make box fit space */
 input {
   background: transparent;
   border: none;
   height: 100%;
-  width: 80%;
-  padding: 3px;
+  width: 100%;
+  /* so cursor appears */
+  padding-left: 3px;
   border-radius: 15px;
 }
 
-/* style container with time in it */
-.timeBox {
-  background-color: linen;  
-  color: black;
-  height: 100%;
-  width: 10%;
-  float: left;
-  vertical-align: middle;
-  text-align: center;
-  border-radius: 15px;
-  padding-top: 1%;
-}
-
-/* style container with daily plan */
-.dailyPlan {
-  float: left;
-  color: black;  
-  font-size: 10pt;
-  vertical-align: middle;
-}
 
 .navbar {
   /* background-color: #73919b;   */
   background-color: #73919b;  
   color: #b6d7e2;  
- /* pulls everything down to push up against bottom border */
+  /* pulls everything down to push up against bottom border */
   padding-bottom: 0;
-
+  
   /* allows ??? to control the horizontal position */
   padding-left: 0;
-
+  
   /* creates solid line for the bottom border  */
   border-bottom: solid;
   border-bottom-color: #ccc;
   width: 100%;
+  text-align: center;
 }
 
 #navbar-title {
-  padding: 15px;
+  padding: 0px;
+  /* padding-bottom: 0px; */
   font-size: 30px;
   color: linen!important; /* TODO can we do this without the !important */
   text-align: center;
 }
 
 #navbar-subtitle {
-  padding: 20px;
+  padding: 2px;
   /* font-size: 15px; */
   color: linen!important; /* TODO can we do this without the !important */
   text-align: center;
@@ -87,37 +58,76 @@ input {
 
 /* container for nav header */
 .container-fluid {
-  padding-left: 5%;
-  padding-right: 5%;
+  /* padding-left: 5%; */
+  /* padding-right: 5%; */
   align-content: center;
 }
+.col-md-1, .col-md-2 {
+  padding: 0;
+  vertical-align: middle;
+}
+.col-md-9{
+  padding: 0;
+  vertical-align: middle;
+}
 
-#planner {
+/* #planner */
+#plannerContainer {
   /* background-color: #73919b;   */
   background-color: #b6d7e2;  
   /* provides spacing between the top and bottom nav bars and the content */
   margin-top: 20px;
   margin-bottom: 80px;
-
+  
   /* provide spaceing around the text */
   padding: 40px;
 } 
- 
 
-li {
+
+/* li */
+.plannerRow {
   height: 50px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  /* padding: 5px; */
-  background-color: #897d9a;
-  color: #fff;
+  margin-top: 2px;
+  margin-bottom: 2px;
   font-size: 1em;
-  line-height: 1.5;
-  list-style-type: none;
-  border-radius: 25px;
-  vertical-align: middle;
+  /* line-height: 1.5; */
+  border-radius: 15px;
+  /* vertical-align: middle; */
 }
 
+/* style container with time in it */
+.timeBox {
+  background-color: linen;  
+  color: black;
+  height:100%;
+  width: 100%;
+  /* float: left; */
+  text-align: center;
+  border-radius: 15px 0px 0px 15px;
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+/* style container with daily plan */
+.dailyPlan {
+  /* float: left; */
+  color: black;  
+  font-size: 12pt;
+  height:100%;
+  width: 100%;
+  /* vertical-align: middle; */
+}
+
+.saveIcon {
+  background-color: darkturquoise;
+  color: linen;
+  border-radius: 0px 15px 15px 0px;
+  float: right;
+  font-size: 2em;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
 
 .footer {
   /* set text properties */
@@ -132,13 +142,13 @@ li {
   border-top-width: 8px;
 }
 
-.footer-text {
+.footer-text, .header-text {
   /* forces text across the entire screen so it has a center */
   width: 100%;
   text-align: center;
 
   font-size: 10px;
-  color:#fff; 
+  color:linen; 
 }
 
 /* media query for screen size to be applied to center text to switch at same time as navbar */

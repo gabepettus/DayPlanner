@@ -43,30 +43,47 @@ $(document).ready(function() {
   
   // draw calendar
   // set variable referencing ul planner element
-  let $plannerUl = $('#planner');
+  let $plannerDiv = $('#plannerContainer');
   // clear existing elements
-  $plannerUl.empty();
-
-  // let hourArr = [9,10,11,12,1,2,3,4,5];
-  // hourArr.forEach((hour) => 
+  $plannerDiv.empty();
 
   // Render a new li for each hour in the planner
   if (test) { console.log("current time",nowHour12); }
 
+  // create grid building blocks
+  // let $div = $('<div>');
+  // let $row = $div.addClass('row');
+  // let $col2 = $div.addClass('col-md-2');
+  // let $col8 = $div.addClass('col-md-8');
+
   for (let hour = 9; hour <= 17; hour++) {
     // index for array use offset from hour
     let index = hour - 9;
-
+    
+    // build row components
+    let $rowDiv = $('<div>');
+    $rowDiv.addClass('row');
+    $rowDiv.addClass('plannerRow');
+    $rowDiv.attr('hour-index',hour);
+  
+    let $col2SaveDiv = $('<div>');
+    $col2SaveDiv.addClass('col-md-2');
+    
     // create list item container for the row
-    let $hourLi = $('<li>');
+    // const $hourLi = $('<li>');
     //give item idex which cooresponds with the start of the hour
-    $hourLi.attr('hour-index',hour);
-
+    // $hourLi.attr('hour-index',hour);
+    
+    // Start building Time box portion of row
+    let $col2TimeDiv = $('<div>');
+    $col2TimeDiv.addClass('col-md-2');
+  
     // create timeBox element (contains time)
     const $timeBoxSpn = $('<span>');
     // can use this to get value
     $timeBoxSpn.attr('class','timeBox');
-
+    
+    // format hours for display
     let displayHour = 0;
     let ampm = "";
     if (hour > 12) { 
@@ -76,9 +93,15 @@ $(document).ready(function() {
       displayHour = hour;
       ampm = "am";
     }
-
+    
+    // populate display
     $timeBoxSpn.text(`${displayHour} ${ampm}`);
 
+    // add col 
+    $rowDiv.append($col2TimeDiv);
+    $col2TimeDiv.append($timeBoxSpn);
+    
+    // STOP building Time box portion of row
     let $dailyPlanSpn = $('<input>');
     // can use this to get value
     //TODO convert this to an icon with a mouse over
@@ -87,24 +110,40 @@ $(document).ready(function() {
     $dailyPlanSpn.attr('class','dailyPlan');
     // access correct index 
     $dailyPlanSpn.val( planTextArr[index] );
+    
+    // start building input portion
+    let $col9IptDiv = $('<div>');
+    $col9IptDiv.addClass('col-md-9');
 
+    // add col width and row component to row
+    $rowDiv.append($col9IptDiv);
+    $col9IptDiv.append($dailyPlanSpn);
+    
+    let $col1SaveDiv = $('<div>');
+    $col1SaveDiv.addClass('col-md-1');
 
-    //TODO convert this to an icon with a mouse over
     let $saveBtn = $('<i>');
     $saveBtn.attr('save-id',index);
     // can use this to get value
     //TODO convert this to an icon with a mouse over
     $saveBtn.attr('class',"far fa-save saveIcon");
+    
+    // add col width and row component to row
+    $rowDiv.append($col1SaveDiv);
+    $col1SaveDiv.append($saveBtn);
 
-    //build row
-    $hourLi.append($timeBoxSpn);
-    $hourLi.append($dailyPlanSpn);
-    $hourLi.append($saveBtn);
+    //build content of row
+    // $hourLi.append($timeBoxSpn);
+    // $hourLi.append($dailyPlanSpn);
+    // $hourLi.append($saveBtn);
     // to update color, to compare hour
-
-    updateRowColor($hourLi, hour);
-
-    $plannerUl.append($hourLi);
+    
+    // updateRowColor($hourLi, hour);
+    updateRowColor($rowDiv, hour);
+    
+    // add row to planner container
+    // $plannerUl.append($hourLi);
+    $plannerDiv.append($rowDiv);
   };
   // need time element, meeting, crud context sensitive buttons icons
   // need eventListener on entire calendar looking for onclick to edit?
