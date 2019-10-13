@@ -16,11 +16,10 @@ body {
 input {
   background: transparent;
   border: none;
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
   /* so cursor appears */
   padding-left: 3px;
-  border-radius: 15px;
 }
 
 
@@ -51,24 +50,13 @@ input {
 
 #navbar-subtitle {
   padding: 2px;
-  /* font-size: 15px; */
+  font-size: 15px;
   color: linen!important; /* TODO can we do this without the !important */
   text-align: center;
 }
 
-/* container for nav header */
-.container-fluid {
-  /* padding-left: 5%; */
-  /* padding-right: 5%; */
-  align-content: center;
-}
-.col-md-1, .col-md-2 {
+.col-md-1, .col-md-2, .col-md-9 {
   padding: 0;
-  vertical-align: middle;
-}
-.col-md-9{
-  padding: 0;
-  vertical-align: middle;
 }
 
 /* #planner */
@@ -83,16 +71,13 @@ input {
   padding: 40px;
 } 
 
-
-/* li */
 .plannerRow {
   height: 50px;
   margin-top: 2px;
   margin-bottom: 2px;
   font-size: 1em;
-  /* line-height: 1.5; */
+  line-height: 1.5;
   border-radius: 15px;
-  /* vertical-align: middle; */
 }
 
 /* style container with time in it */
@@ -105,7 +90,7 @@ input {
   text-align: center;
   border-radius: 15px 0px 0px 15px;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 /* style container with daily plan */
@@ -122,8 +107,8 @@ input {
   background-color: darkturquoise;
   color: linen;
   border-radius: 0px 15px 15px 0px;
-  float: right;
-  font-size: 2em;
+  /* float: right; */
+  font-size: 1.5em;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -158,14 +143,13 @@ input {
     padding-left: 0;
     padding-right: 0;
   }
-
-/* removes verticle lines between text */
-  li {
-    border-right: none;
+  .plannerRow {
+    height: 100%;
+    border-radius: 10;
+    margin: 10px;
   }
 
-/* collapses space between menu options when they stack vertically*/
-  .nav-link{
-    padding: 1px;
-  }
+  .saveIcon { border-radius: 0 0 15px 15px; }
+
+  .timeBox { border-radius: 15px 15px 0 0; }
 }

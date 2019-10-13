@@ -1,17 +1,16 @@
 $(document).ready(function() {
   
-  // need to put in a timeInterval to update clock dynamically
-  // Bonus need to navigate to past future days - calendar options
   // get times from moment
-  // const now = moment().format('MMMM Do YYYY, h:mm:ss a');
-  // returns current hour
-  
+  const now = moment().format('MMMM Do YYYY');
+
   // commented out for test in non-standard hours
-  // const nowHour24 = moment().format('H');
-  // const nowHour12 = moment().format('h');
-  const nowHour24 = 13;
-  const nowHour12 = 1;
+  const nowHour24 = moment().format('H');
+  const nowHour12 = moment().format('h');
+  // const nowHour24 = 13;
+  // const nowHour12 = 1;
   
+  let $dateHeading = $('#navbar-subtitle');
+  $dateHeading.text(now);
   
   // using font awesome icon https://fontawesome.com/license
   // change description here
