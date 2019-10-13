@@ -4,42 +4,59 @@ body {
 
   /* font parameters */
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
+  font-size: .8em;
 
   /* added padding to prevent navbar overlap. (100 based on browser inpector of size) */
   padding-top: 90px;
+  vertical-align: middle;
 }
 
-button {
+.saveIcon {
+  text-align: center;
+  vertical-align: middle;
   float: right;
   width: 10%;
+  height: 100%;
+  color: linen;
+  font-size: 1.5em;
+  background-color: darkturquoise;
+  border-radius: 15px;
+  padding-top: 1%;
 }
 
 /*  need to make box fit space */
 input {
-    background: transparent;
-    border: none;
-    height: 100%;
-    width: 80%;
+  background: transparent;
+  border: none;
+  height: 100%;
+  width: 80%;
+  padding: 3px;
+  border-radius: 15px;
 }
 
 /* style container with time in it */
 .timeBox {
-  background-color: pink;  
+  background-color: linen;  
   color: black;
   height: 100%;
   width: 10%;
-  float: left
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 15px;
+  padding-top: 1%;
 }
 
 /* style container with daily plan */
 .dailyPlan {
   float: left;
   color: black;  
-  font-size: 14pt;
+  font-size: 10pt;
+  vertical-align: middle;
 }
 
 .navbar {
+  /* background-color: #73919b;   */
   background-color: #73919b;  
   color: #b6d7e2;  
  /* pulls everything down to push up against bottom border */
@@ -57,7 +74,15 @@ input {
 #navbar-title {
   padding: 15px;
   font-size: 30px;
-  color: #fff !important; /* TODO can we do this without the !important */
+  color: linen!important; /* TODO can we do this without the !important */
+  text-align: center;
+}
+
+#navbar-subtitle {
+  padding: 20px;
+  /* font-size: 15px; */
+  color: linen!important; /* TODO can we do this without the !important */
+  text-align: center;
 }
 
 /* container for nav header */
@@ -65,22 +90,6 @@ input {
   padding-left: 5%;
   padding-right: 5%;
   align-content: center;
-}
-
-.nav-link {
-  text-decoration: none;
-  /* padding-left: 0%; */
-  /* padding-right: 0%; */
-  /* color: #777 !important; */
-}
-
-/* Change the color of links on hover */
-.nav-link:hover {
-  /* question how do i impact these values without using important */
-  /* background-color: #4Cabc2 !important; */
-  background-color: #b6d7e2;  
-  /* color: #fff !important; */
-  color: #666;
 }
 
 #planner {
@@ -102,13 +111,11 @@ li {
   /* padding: 5px; */
   background-color: #897d9a;
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 1.5;
   list-style-type: none;
-}
-
-li:hover {
-  background-color: #9e9268;
+  border-radius: 25px;
+  vertical-align: middle;
 }
 
 

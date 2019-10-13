@@ -7,11 +7,15 @@ $(document).ready(function() {
   // returns current hour
   
   // commented out for test in non-standard hours
-  const nowHour24 = moment().format('H');
-  const nowHour12 = moment().format('h');
-  // const nowHour24 = 13;
-  // const nowHour12 = 1;
+  // const nowHour24 = moment().format('H');
+  // const nowHour12 = moment().format('h');
+  const nowHour24 = 13;
+  const nowHour12 = 1;
   
+  
+  // using font awesome icon https://fontawesome.com/license
+  // change description here
+  const saveIcon = "./images/save-regular.svg"; 
   // let planTextArr = null;
   // initialize empty array of length of day 
 
@@ -43,7 +47,7 @@ $(document).ready(function() {
   // clear existing elements
   $plannerUl.empty();
 
-  let hourArr = [9,10,11,12,1,2,3,4,5];
+  // let hourArr = [9,10,11,12,1,2,3,4,5];
   // hourArr.forEach((hour) => 
 
   // Render a new li for each hour in the planner
@@ -61,9 +65,19 @@ $(document).ready(function() {
     // create timeBox element (contains time)
     const $timeBoxSpn = $('<span>');
     // can use this to get value
-    //TODO convert this to an icon with a mouse over
     $timeBoxSpn.attr('class','timeBox');
-    $timeBoxSpn.text(`${hour}:00`);
+
+    let displayHour = 0;
+    let ampm = "";
+    if (hour > 12) { 
+      displayHour = hour - 12;
+      ampm = "pm";
+    } else {
+      displayHour = hour;
+      ampm = "am";
+    }
+
+    $timeBoxSpn.text(`${displayHour} ${ampm}`);
 
     let $dailyPlanSpn = $('<input>');
     // can use this to get value
@@ -74,12 +88,13 @@ $(document).ready(function() {
     // access correct index 
     $dailyPlanSpn.val( planTextArr[index] );
 
-    // create save button element
-    let $saveBtn = $('<button>');
-    $saveBtn.attr('btn-id',index);
+
+    //TODO convert this to an icon with a mouse over
+    let $saveBtn = $('<i>');
+    $saveBtn.attr('save-id',index);
     // can use this to get value
     //TODO convert this to an icon with a mouse over
-    $saveBtn.text('Save');
+    $saveBtn.attr('class',"far fa-save saveIcon");
 
     //build row
     $hourLi.append($timeBoxSpn);
@@ -106,24 +121,25 @@ $(document).ready(function() {
     if ( hour < nowHour24) {
       // $hourRow.css('')
       if (test) { console.log("lessThan"); }
-      $hourRow.css("background-color","grey")
+      $hourRow.css("background-color","lightgrey")
     } else if ( hour > nowHour24) {
       if (test) { console.log("greaterthan"); }
-      $hourRow.css("background-color","green")
+      $hourRow.css("background-color","lightgreen")
     } else {
       if (test) { console.log("eqaul"); }
-      $hourRow.css("background-color","red")
+      $hourRow.css("background-color","tomato")
     }
   };
 
   // conclick function to listen for user clicks on plan area
-  $(document).on('click','button', function(event) {
   //  $(".dailyPlan").submit( function(event) {
+  $(document).on('click','i', function(event) {
+    
     event.preventDefault();  
 
     if (test) { console.log('click pta before '+ planTextArr); }
 
-    let $index = $(this).attr('btn-id');
+    let $index = $(this).attr('save-id');
 
     let inputId = '#input-'+$index;
     let $value = $(inputId).val();
