@@ -39,7 +39,7 @@ $(document).ready(function() {
     planTextArr[4] = "Picnic lunch outside";
   }
 
-  console.log("full array of plned text",planTextArr);
+  if (test) { console.log("full array of plned text",planTextArr); }
 
   // set variable referencing planner element
   let $plannerDiv = $('#plannerContainer');
